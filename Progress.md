@@ -17,3 +17,4 @@ We needed it, cause we wanted to
     - `npm i react-redux`
 2. Creating a Store
 3. Creating a Slice.
+4. Creating the show and hide functionality in sidebar.
