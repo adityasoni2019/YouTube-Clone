@@ -8,7 +8,7 @@ const MainContainer = () => {
       <ButtonList/>
       <VideoContainer/>
     </div>
-  )
-}
+  );
+};
 
 export default MainContainer
