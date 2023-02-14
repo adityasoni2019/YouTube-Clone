@@ -9,7 +9,7 @@ const VideoCard = ({ info }) => {
 
     return (
         <div className='p-2 m-2 w-72 shadow-lg'>
-            <img alt="thumbnail" src={thumbnails.medium.url} className= "rounded-lg" />
+            <img alt="thumbnail" src={thumbnails.medium.url} className="rounded-lg" />
             <ul>
                 <li className='font-bold'>{title}</li>
                 <li>{channelTitle}</li>
@@ -20,5 +20,14 @@ const VideoCard = ({ info }) => {
         </div>
     );
 };
+
+
+export const AdVideoCard = ({ info }) => {
+    return (
+        <div className="p-1 m-1 border border-red-900 ">
+            <VideoCard info={info} />
+        </div>
+    )
+}
 
 export default VideoCard;
