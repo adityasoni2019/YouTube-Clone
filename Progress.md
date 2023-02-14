@@ -10,7 +10,7 @@
 ##### In this commit
 
 ###### Setting up Redux
-We needed it, cause we wanted to 
+We needed it, cause we wanted to make the slide functionality of the slide bar, and for that we wanted a global variable.
 
 1. Commands
     - `npm i @reduxjs/toolkit`
@@ -18,3 +18,11 @@ We needed it, cause we wanted to
 2. Creating a Store
 3. Creating a Slice.
 4. Creating the show and hide functionality in sidebar.
+
+
+##### In this commit
+
+###### Setting up Routing
+
+1. Installing the React Router DOM using the `npm i react-router-dom` command.
+2. Creating browser router.
