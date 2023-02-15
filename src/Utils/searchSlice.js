@@ -23,5 +23,11 @@ const searchSlice = createSlice({
 
 */
 
+/*
+
+    NOTE: WE DON'T NEED TO CLEAR OUT STORE, CAUSE, IT AUTOMATICALLY CLEANS UP WHEN WE REFRESH THE PAGE.
+    WE WOULD HAVE TO CLEAR OUR STORE, WHEN WE'RE MAKING IT TO WORK FOR 100K+ SEARCHES IN A SINGLE SESSION, WITHOUT REFRESHING. CAUSE, IN THAT CASE, WE WOULD BLOW UP OUR STORE.
+*/
+
 export const {cacheResults} = searchSlice.actions;
 export default searchSlice.reducer;
