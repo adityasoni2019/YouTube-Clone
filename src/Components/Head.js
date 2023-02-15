@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../Utils/appSlice';
 import { YOUTUBE_SEARCH_API } from '../Utils/constants';
+import { cacheResults } from '../Utils/searchSlice';
 
 const Head = () => {
 
@@ -9,6 +10,8 @@ const Head = () => {
   const dispatch = useDispatch();
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const searchCache = useSelector(store => store.search);
 
   useEffect(() => {
     // API Call here.
@@ -18,7 +21,15 @@ const Head = () => {
     // but if the difference b/w 2 API Calls is <200ms
     // decline the API call. 
 
-    const timer = setTimeout(() => getSearchSuggestions(), 200);
+    const timer = setTimeout(() => {
+      if (searchCache[searchQuery]) {
+        setSuggestions(searchCache[searchQuery]);
+      }
+      else {
+        getSearchSuggestions()
+      }
+
+    }, 200);
     return () => {
       clearTimeout(timer);
     }
@@ -30,7 +41,13 @@ const Head = () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
     // console.log(json[1]);
-    setSuggestions(json[1])
+    setSuggestions(json[1]);
+
+    // updating cache
+    dispatch(
+      cacheResults({
+        [searchQuery]: json[1], 
+      }))
   }
 
 
@@ -75,7 +92,7 @@ const Head = () => {
           </ul>
         </div>}
       </div>
-      
+
       <div className="col-span-1">
         <img className='h-12' alt="user" src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" />
       </div>

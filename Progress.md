@@ -26,3 +26,11 @@ We needed it, cause we wanted to make the slide functionality of the slide bar, 
 
 1. Installing the React Router DOM using the `npm i react-router-dom` command.
 2. Creating browser router.
+
+##### In this commit
+
+###### Caching the search resutls
+
+1. In this commit, we cache all the results that we search, so that when we search those things again, it doesn't call the API again. 
+2. This is also useful when we basically hit backspace, cause, when when we do that, it'll call the API again for a thing that we've alreay called an API for. 
+3. A very nice optimizatio move. 
