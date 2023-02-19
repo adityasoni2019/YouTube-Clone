@@ -4,6 +4,9 @@ export const YOUTUBE_VIDEOS_API = "https://youtube.googleapis.com/youtube/v3/vid
 
 export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
+export const OFFSET_LIVE_CHAT = 100;
+// ^ this is basically the no. of comments we're going to have on the screen. 
+
 
 export const COMMENTS = [
     {
